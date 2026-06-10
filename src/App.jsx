@@ -1,192 +1,216 @@
-import { useEffect, useRef, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useEffect, useRef } from 'react'
+import logoImage from './assets/SutiExpenseEdit.png'
+import playBadge from './assets/PlayBadge.png'
+import appleBadge from './assets/AppleBadge.png'
+import marqLogo from './assets/marq_logo.png'
 import './index.css'
 
 function App() {
-  const [viewType, setViewType] = useState(1)
-
   const containerRef = useRef(null)
   const canvasRef = useRef(null)
 
-
-  const logoImage = "src/assets/SutiExpenseEdit.png"
-  const playBadge = "src/assets/PlayBadge.png"
-  const appleBadge = "src/assets/AppleBadge.png"
-  const marqLogo = "src/assets/marq_logo.png"
-
   useEffect(() => {
-    if(!canvasRef.current) return
+    if (!canvasRef.current) return
 
     const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d')
 
-    let width, height;
-    const particles = [];
+    let width, height
+    const particles = []
 
-    // Color palette based on the image: Dark blue, bright blue, cyan
-    const colors = ['#1a56ff', '#007bff', '#00c3ff', '#33ccff'];
+    const colors = ['#1a56ff', '#007bff', '#00c3ff', '#33ccff']
 
-    // Handle Window Resizing
     function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      width = canvas.width = window.innerWidth
+      height = canvas.height = window.innerHeight
     }
-    window.addEventListener('resize', resize);
-    resize();
 
-    // Particle Class
+    window.addEventListener('resize', resize)
+    resize()
+
     class Particle {
       constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 20 + 15; // Base size
-        this.color = colors[Math.floor(Math.random() * colors.length)] + this.getRandOpacity();
-        this.rotation = Math.random() * Math.PI * 2;
-        this.speedY = Math.random() * 0.4 + 0.1; // Slow upward drift
-        this.speedX = (Math.random() - 0.5) * 0.3; // Slight horizontal drift
-        this.rotSpeed = (Math.random() - 0.5) * 0.015; // Gentle rotation
-
-        // 0 for leaf shape, 1 for rounded diamond
-        this.shapeType = Math.random() > 0.5 ? 0 : 1;
+        this.x = Math.random() * width
+        this.y = Math.random() * height
+        this.size = Math.random() * 20 + 15
+        this.color = colors[Math.floor(Math.random() * colors.length)] + this.getRandOpacity()
+        this.rotation = Math.random() * Math.PI * 2
+        this.speedY = Math.random() * 0.4 + 0.1
+        this.speedX = (Math.random() - 0.5) * 0.3
+        this.rotSpeed = (Math.random() - 0.5) * 0.015
+        this.shapeType = Math.random() > 0.5 ? 0 : 1
       }
 
       getRandOpacity() {
-        let randRaw = Math.floor(Math.random() * (255 - 1))
+        const randRaw = Math.floor(Math.random() * (255 - 1))
         return randRaw.toString(16).padStart(2, '0').toUpperCase()
       }
 
       draw() {
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.rotation);
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
+        ctx.save()
+        ctx.translate(this.x, this.y)
+        ctx.rotate(this.rotation)
+        ctx.fillStyle = this.color
+        ctx.beginPath()
 
         if (this.shapeType === 0) {
-          // Clean leaf/petal shape
-          ctx.moveTo(0, -this.size);
-          ctx.quadraticCurveTo(this.size, 0, 0, this.size);
-          ctx.quadraticCurveTo(-this.size, 0, 0, -this.size);
+          ctx.moveTo(0, -this.size)
+          ctx.quadraticCurveTo(this.size, 0, 0, this.size)
+          ctx.quadraticCurveTo(-this.size, 0, 0, -this.size)
         } else {
-          // Rounded square / diamond
-          const w = this.size * 1.4;
-          const r = w * 0.35; // corner radius
+          const w = this.size * 1.4
+          const r = w * 0.35
+
           if (ctx.roundRect) {
-            ctx.roundRect(-w/2, -w/2, w, w, r);
+            ctx.roundRect(-w / 2, -w / 2, w, w, r)
           } else {
-             // Fallback if roundRect is not supported
-             ctx.rect(-w/2, -w/2, w, w);
+            ctx.rect(-w / 2, -w / 2, w, w)
           }
         }
 
-        ctx.fill();
-        ctx.restore();
+        ctx.fill()
+        ctx.restore()
       }
 
       update() {
-        this.y -= this.speedY;
-        this.x += this.speedX;
-        this.rotation += this.rotSpeed;
+        this.y -= this.speedY
+        this.x += this.speedX
+        this.rotation += this.rotSpeed
 
-        // Reset particle to bottom when it floats off the top
         if (this.y < -this.size * 2) {
-          this.y = height + this.size * 2;
-          this.x = Math.random() * width;
+          this.y = height + this.size * 2
+          this.x = Math.random() * width
         }
       }
     }
 
-    // Initialize Particles based on screen size so it's not too crowded on mobile
     function initParticles() {
-      particles.length = 0; // Clear existing
-      // Roughly 1 particle per 40px of screen width, max 50
-      const numParticles = Math.min(Math.floor(window.innerWidth / 40), 50);
+      particles.length = 0
+
+      const numParticles = Math.min(Math.floor(window.innerWidth / 40), 50)
+
       for (let i = 0; i < numParticles; i++) {
-        particles.push(new Particle());
+        particles.push(new Particle())
       }
     }
 
-    // Call init on load and re-init if window is resized significantly
-    let lastWidth = window.innerWidth;
-    window.addEventListener('resize', () => {
+    let lastWidth = window.innerWidth
+
+    function handleParticleResize() {
       if (Math.abs(window.innerWidth - lastWidth) > 100) {
-        initParticles();
-        lastWidth = window.innerWidth;
+        initParticles()
+        lastWidth = window.innerWidth
       }
-    });
-
-    initParticles();
-
-    // Animation Loop
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animate);
     }
 
-    animate();
+    window.addEventListener('resize', handleParticleResize)
 
+    initParticles()
+
+    let animationFrameId
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height)
+
+      particles.forEach((p) => {
+        p.update()
+        p.draw()
+      })
+
+      animationFrameId = requestAnimationFrame(animate)
+    }
+
+    animate()
+
+    return () => {
+      window.removeEventListener('resize', resize)
+      window.removeEventListener('resize', handleParticleResize)
+      cancelAnimationFrame(animationFrameId)
+    }
   }, [])
 
   return (
     <>
       <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />
-      <div className="flex flex-col justify-center max-w-full w-full" ref={containerRef}>
 
+      <div className="flex flex-col justify-center max-w-full w-full" ref={containerRef}>
         <header className="flex items-center sticky top-0 w-full h-13 sm:h-17 z-50 bg-[rgba(255,255,255,0.92)] backdrop-blur-md px-4 shadow-md">
-          <img src="src/assets/marq_logo.png" className="h-3/4 w-32 sm:w-52 invert object-scale-down" />
+          <img
+            src={marqLogo}
+            className="h-3/4 w-32 sm:w-52 invert object-scale-down"
+            alt="Marquette logo"
+          />
         </header>
 
         <div className="flex flex-col max-w-full items-center gap-3 pt-3 pb-4 px-4 sm:px-8">
           <div className="w-full max-w-full">
-            <h1 className="text-center font-sans font-bold text-3xl pb-4 pt-4">New Launch Alert.<br/>Ready. Set. Get.</h1>
+            <h1 className="text-center font-sans font-bold text-3xl pb-4 pt-4">
+              New Launch Alert.
+              <br />
+              Ready. Set. Get.
+            </h1>
 
             {/* Mobile layout */}
             <div className="flex flex-col items-center gap-3 sm:hidden">
               <div className="flex flex-col items-center gap-2">
                 <div className="w-28 h-28 border-blue-100 border-2 rounded-4xl overflow-hidden shadow-[-5px_10px_5px] shadow-blue-200">
-                  <img src={logoImage} className="w-full h-full object-contain" />
+                  <img src={logoImage} className="w-full h-full object-contain" alt="SutiExpense" />
                 </div>
+
                 <div className="flex justify-center items-center">
-                  <img src={playBadge} className="h-9 w-30 mr-1" />
-                  <img src={appleBadge} className="h-9 w-30 ml-1" />
+                  <img src={playBadge} className="h-9 w-30 mr-1" alt="Get it on Google Play" />
+                  <img src={appleBadge} className="h-9 w-30 ml-1" alt="Download on the App Store" />
                 </div>
               </div>
+
               <div className="grid grid-cols-2 gap-2 w-full">
-                <a href="#gettingStarted" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>Getting Started</a>
-                <a href="#deadlines" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>Deadlines</a>
-                <a href="#faq" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>FAQ</a>
-                <a href="#rules" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>Rules</a>
+                <a href="#gettingStarted" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>
+                  Getting Started
+                </a>
+                <a href="#deadlines" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>
+                  Deadlines
+                </a>
+                <a href="#faq" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>
+                  FAQ
+                </a>
+                <a href="#rules" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>
+                  Rules
+                </a>
               </div>
             </div>
 
             {/* Desktop layout */}
             <div className="hidden sm:flex justify-center items-center gap-6">
               <div className="flex flex-col gap-3 w-32">
-                <a href="#gettingStarted" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>Getting Started</a>
-                <a href="#faq" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>FAQ</a>
+                <a href="#gettingStarted" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>
+                  Getting Started
+                </a>
+                <a href="#faq" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>
+                  FAQ
+                </a>
               </div>
+
               <div className="flex justify-center items-center shrink-0">
                 <div className="w-44 h-44 border-blue-100 border-2 rounded-4xl overflow-hidden shadow-[-5px_10px_5px] shadow-blue-200">
-                  <img src={logoImage} className="w-full h-full object-contain" />
+                  <img src={logoImage} className="w-full h-full object-contain" alt="SutiExpense" />
                 </div>
               </div>
+
               <div className="flex flex-col gap-3 w-32">
-                <a href="#deadlines" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>Deadlines</a>
-                <a href="#rules" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>Rules</a>
+                <a href="#deadlines" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>
+                  Deadlines
+                </a>
+                <a href="#rules" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>
+                  Rules
+                </a>
               </div>
             </div>
           </div>
 
           {/* Desktop badges */}
           <div className="hidden sm:flex justify-center items-center py-1">
-            <img src={playBadge} className="h-13 w-40 mr-1" />
-            <img src={appleBadge} className="h-14 w-40 ml-1" />
+            <img src={playBadge} className="h-13 w-40 mr-1" alt="Get it on Google Play" />
+            <img src={appleBadge} className="h-14 w-40 ml-1" alt="Download on the App Store" />
           </div>
         </div>
 
@@ -194,50 +218,95 @@ function App() {
           <div id="gettingStarted" className="scroll-m-20 infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
             <h2>How do I download SutiExpense?</h2>
             <p>Download SutiExpense by clicking one of the two links above.</p>
+
             <h2 className="mt-4">How do I access SutiExpense?</h2>
             <p>Once you have the app, you can access SutiExpense directly by the app, or within Confluence.</p>
           </div>
+
           <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
             <h2>How do I log in?</h2>
             <p>After opening the app: </p>
+
             <ol>
               <li>Ignore the first login screen.</li>
               <li>Swipe left to access the Single Sign-On (SSO) page.</li>
               <li>Log in using your Marquette SSO credentials (the same login used for Confluence).</li>
             </ol>
-            <p>Watch a quick login demo here: <a className="textLink" href="ok">Login Demo Link</a></p>
+
+            <p>
+              Watch a quick login demo here:{' '}
+              <a className="textLink" href="ok">
+                Login Demo Link
+              </a>
+            </p>
           </div>
         </div>
-        <h1 id="faq" className="scroll-m-20 self-center pb-5 text-center font-sans font-bold text-2xl">Frequently Asked Questions</h1>
+
+        <h1 id="faq" className="scroll-m-20 self-center pb-5 text-center font-sans font-bold text-2xl">
+          Frequently Asked Questions
+        </h1>
+
         <div className="flex flex-col md:flex-row gap-4 w-[90%] mx-auto">
           <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
             <h2>How do I learn to use SutiExpense?</h2>
-            <p>All employees have been assigned SutiExpense eLearnings. Please complete them here: <a className="textLink" href="https://marquette.sci-training.org/login/index.php">Log in to Marquette E-Learning</a></p>
+
+            <p>
+              All employees have been assigned SutiExpense eLearnings. Please complete them here:{' '}
+              <a className="textLink" href="https://marquette.sci-training.org/login/index.php">
+                Log in to Marquette E-Learning
+              </a>
+            </p>
+
             <p>If you have additional questions, contact your Crew Manager or Makenzie Davis.</p>
           </div>
+
           <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
             <h2>How do I submit an expense report?</h2>
             <p>Step-by-step training is available through your assigned eLearnings.</p>
-            <p>You can also view a quick demo here: <a className="textLink" href="ok">Expense Report Link</a></p>
+
+            <p>
+              You can also view a quick demo here:{' '}
+              <a className="textLink" href="ok">
+                Expense Report Link
+              </a>
+            </p>
           </div>
         </div>
+
         <div className="infoContainer">
           <h2>How can I ensure timely reimbursement?</h2>
-          <p>To help ensure your expenses are processed quickly, please submit receipts by the 12th of each month or at least 3 days before month-end</p>
+          <p>
+            To help ensure your expenses are processed quickly, please submit receipts by the 12th of each month or at least 3 days before month-end
+          </p>
         </div>
+
         <div id="deadlines" className="scroll-m-20 infoContainer">
           <h2>When do we have to fully transition to SutiExpense?</h2>
-          <p>Beginning July 1, we strongly encourage all employees to download SutiExpense, begin collecting photos of receipts and start submitting expense reports through the app. </p>
+
+          <p>Beginning July 1, we strongly encourage all employees to download SutiExpense, begin collecting photos of receipts and start submitting expense reports through the app.</p>
           <p>We understand that transitioning from a paper process to a digital platform takes time to adjust,</p>
           <p>so a two-month grace period will be in place where both Suti and paper expense reports will be accepted (submit one or the other, not both).</p>
+
           <br />
-          <p>Starting September 1, all expense submissions <b>MUST</b> be completed through SutiExpense. </p>
+
+          <p>
+            Starting September 1, all expense submissions <b>MUST</b> be completed through SutiExpense.
+          </p>
           <p>At that time, paper expense reports will be officially retired, and reimbursement requests submitted on paper will be returned to the sender.</p>
         </div>
+
         <div id="rules" className="scroll-m-20 infoContainer">
           <h2>Are there rules or guidelines I need to follow?</h2>
-          <p>Yes. SutiExpense follows Marquette's expense reimbursement policies. Please review them here: <a className="textLink" href="ok">Insert Policy Link</a></p>
+
+          <p>
+            Yes. SutiExpense follows Marquette&apos;s expense reimbursement policies. Please review them here:{' '}
+            <a className="textLink" href="ok">
+              Insert Policy Link
+            </a>
+          </p>
+
           <p>A few key reminders:</p>
+
           <ul>
             <li>Expenses must be reported and receipts must be submitted within 60 days of the expense date</li>
             <li>Mileage only paid in the River Division</li>
@@ -248,7 +317,6 @@ function App() {
             <li>No alcohol</li>
           </ul>
         </div>
-
       </div>
     </>
   )
