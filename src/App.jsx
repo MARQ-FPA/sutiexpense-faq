@@ -303,7 +303,7 @@ function App() {
             <li>Cooks and Deck roles are capped at a $200 mileage reimbursement limit</li>
             <li>No mileage cap for wheelhouse or engineering personnel. 
               <ul>
-                <li className="list-[circle]"> You cannot claim both mileage and gas. </li>
+                <li className="list-[circle]">Wheelmen and engineers can NOT claim both mileage and gas.</li>
                 <li className="list-[circle]">If using a rental car, only gas receipts will be approved.</li>
               </ul>
             </li>
