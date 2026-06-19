@@ -214,6 +214,13 @@ function App() {
           </div>
         </div>
 
+        {/* <FIXME></FIXME> */}
+        <div className="scroll-m-20 infoContainer !text-center">
+            <h2>What is SutiExpense used for?</h2>
+            <p>SutiExpense is used to capture receipts, create expense reports, 
+              submit expenses and mileage for approval, track reimbursement status,
+               and manage travel-related expenses.</p>
+        </div>
         <div className="flex flex-col md:flex-row gap-4 w-[90%] mx-auto">
           <div id="gettingStarted" className="scroll-m-20 infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
             <h2>How do I download SutiExpense?</h2>
@@ -227,7 +234,7 @@ function App() {
             <h2>How do I log in?</h2>
             <p>After opening the app: </p>
 
-            <ol>
+            <ol className="font-bold">
               <li>Ignore the first login screen.</li>
               <li>Swipe left to access the Single Sign-On (SSO) page.</li>
               <li>Log in using your Marquette SSO credentials (the same login used for Confluence).</li>
@@ -246,37 +253,59 @@ function App() {
           Frequently Asked Questions
         </h1>
 
+
+        <div className="infoContainer text-center" style={{ width: '90%', alignSelf: 'center' }}>
+          <h2>How do I submit an expense report?</h2>
+          <div className="flex flex-col md:flex-row gap-4 w-[90%] mx-auto text-center mt-2">
+            <div style={{ width: '90%', alignSelf: 'center' }}>
+              <p>To create and submit an expense report: </p>
+              <ol className="font-bold list-none! ml-0!">
+                <li>Create a new report</li>
+                <li>Enter the details of the report</li>
+                <li>Add expenses and receipts</li>
+                <li>Submit for approval when ready</li>
+              </ol>
+            </div>
+            <div style={{ width: '90%', alignSelf: 'center' }}>
+              <p>To create and submit a mileage expense report:</p>
+              <ol className="items-center font-bold list-none! ml-0!">
+                <li>Create a new report</li>
+                <li>Enter trip details</li>
+                <li>Submit for approval when ready</li>
+              </ol>
+            </div>
+          </div>
+          
+          <br />
+          <p>Step-by-step training is available through your assigned eLearnings.</p>
+
+          <p>
+            You can also view a quick demo here:{' '}
+            <a className="textLink" href="ok">
+              Expense Report Link
+            </a>
+          </p>
+        </div>
+
         <div className="flex flex-col md:flex-row gap-4 w-[90%] mx-auto">
           <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
-            <h2>How do I learn to use SutiExpense?</h2>
+            <h2>How do I navigate the SutiExpense app?</h2>
 
             <p>
-              All employees have been assigned SutiExpense eLearnings. Please complete them here:{' '}
+            Use the main menu to Create a New Expense Report, access Expense Report Drafts, Receipts, Submitted Expense Reports, and Settings.
+            <br /><br />All employees have been assigned SutiExpense eLearnings. Please complete them here:{' '}
               <a className="textLink" href="https://marquette.sci-training.org/login/index.php">
                 SutiExpense eLearnings
               </a>
             </p>
 
-            <p>If you have additional questions, contact your Crew Manager or Makenzie Davis.</p>
+            <p><br />If you have additional questions, contact your Crew Manager or Makenzie Davis.</p>
           </div>
-
           <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
-            <h2>How do I submit an expense report?</h2>
-            <p>Step-by-step training is available through your assigned eLearnings.</p>
-
-            <p>
-              You can also view a quick demo here:{' '}
-              <a className="textLink" href="ok">
-                Expense Report Link
-              </a>
-            </p>
+            <h2>How can I ensure timely reimbursement?</h2>
+            <p>Expenses will be reimbursed on the 7th and the 22nd as a separate deposit from payroll.</p>
+            <p><br />To help ensure your expenses are processed quickly, please submit receipts by the 12th of each month or at least 3 days before month-end.</p>
           </div>
-        </div>
-
-        <div className="infoContainer">
-          <h2>How can I ensure timely reimbursement?</h2>
-          <p>Expenses will be reimbursed on the 7th and the 22nd as a separate deposit from payroll.</p>
-          <p>To help ensure your expenses are processed quickly, please submit receipts by the 12th of each month or at least 3 days before month-end</p>
         </div>
 
         <div id="deadlines" className="scroll-m-20 infoContainer">
@@ -310,6 +339,30 @@ function App() {
             <li>Itemized receipts required for all expenses except mileage</li>
             <li>No alcohol</li>
           </ul>
+        </div>
+        <div className="infoContainer">
+          <h2>What information should be visible on a receipt?</h2>
+          <p>Merchant name, transaction date, amount paid, and itemized details. 
+            <br /><span className="underline"> Blurry, incomplete, or unreadable receipts may be rejected during the approval process.</span></p>
+        </div>
+        <div className="infoContainer">
+          <h2>How do I capture a receipt using my phone camera?</h2>
+          <p>Within the app you can either:</p>
+          <ul>
+            <li>Use the camera icon to take a photo as you submit your report</li>
+            <li>Upload a photo from your phone's gallery</li>
+            <li>Or upload an existing photo into your “My Receipts” Repository - a centralized location where uploaded and captured receipts are stored in the app.</li>
+          </ul>
+        </div>
+        <div className="flex flex-col md:flex-row gap-4 w-[90%] mx-auto">
+          <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
+            <h2>How does the approval process work?</h2>
+            <p>Reports are routed to the appropriate approver who review and either approve or reject them.</p>
+          </div>
+          <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
+            <h2>What if my expense report is rejected?</h2>
+            <p>The approver provides comments explaining the reason for rejection and whether or not it can be edited and resubmitted.</p>
+          </div>
         </div>
       </div>
     </>
