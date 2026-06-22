@@ -242,7 +242,7 @@ function App() {
 
             <p>
               Watch a quick login demo here:{' '}
-              <a className="textLink" href="ok">
+              <a className="textLink" href="https://www.youtube.com/shorts/IIm1rsDXgvE?feature=share" target="_blank">
                 Login Demo Link
               </a>
             </p>
@@ -264,6 +264,7 @@ function App() {
                 <li>Enter the details of the report</li>
                 <li>Add expenses and receipts</li>
                 <li>Submit for approval when ready</li>
+                <a className="font-normal textLink" target="_blank" href="https://www.youtube.com/watch?v=SUP7cmAI1wE&feature=youtu.be">Click here for an expense report demo</a>
               </ol>
             </div>
             <div style={{ width: '90%', alignSelf: 'center' }}>
@@ -272,19 +273,13 @@ function App() {
                 <li>Create a new report</li>
                 <li>Enter trip details</li>
                 <li>Submit for approval when ready</li>
+                <a className="font-normal textLink" target="_blank" href="https://www.youtube.com/watch?v=Dx2YFX_p8MY&feature=youtu.be">Click here for a mileage report demo</a>
               </ol>
             </div>
           </div>
           
           <br />
           <p>Step-by-step training is available through your assigned eLearnings.</p>
-
-          <p>
-            You can also view a quick demo here:{' '}
-            <a className="textLink" href="ok">
-              Expense Report Link
-            </a>
-          </p>
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 w-[90%] mx-auto">
@@ -294,7 +289,7 @@ function App() {
             <p>
             Use the main menu to Create a New Expense Report, access Expense Report Drafts, Receipts, Submitted Expense Reports, and Settings.
             <br /><br />All employees have been assigned SutiExpense eLearnings. Please complete them here:{' '}
-              <a className="textLink" href="https://marquette.sci-training.org/login/index.php">
+              <a className="textLink" target="_blank" href="https://marquette.sci-training.org/login/index.php">
                 SutiExpense eLearnings
               </a>
             </p>
