@@ -318,7 +318,7 @@ function App() {
 
         <div id="rules" className="scroll-m-20 infoContainer">
           <h2>Are there rules or guidelines I need to follow?</h2>
-          <p>Yes. SutiExpense follows Marquette's expense reimbursement policies. Please review them here: <a className="textLink" target="_blank" href="HR15 - Travel Expense Policy (2-2025).pdf">Expense Reimbursement Policy</a></p>
+          <p>Yes. SutiExpense follows Marquette's expense reimbursement policies. Please review them here: <a className="textLink" target="_blank" href="ExpenseReimbursementSuti.pdf">Expense Reimbursement Policy</a></p>
           <p>A few key reminders:</p>
           <ul>
             <li>Expenses must be reported and receipts must be submitted within 60 days of the expense date</li>
