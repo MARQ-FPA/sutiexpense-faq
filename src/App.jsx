@@ -167,14 +167,14 @@ function App() {
                 <a href="#gettingStarted" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>
                   Getting Started
                 </a>
-                <a href="#deadlines" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>
-                  Deadlines
+                <a href="#rules" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>
+                  Rules
                 </a>
                 <a href="#faq" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>
                   FAQ
                 </a>
-                <a href="#rules" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>
-                  Rules
+                <a href="#links" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>
+                  Links
                 </a>
               </div>
             </div>
@@ -197,11 +197,11 @@ function App() {
               </div>
 
               <div className="flex flex-col gap-3 w-32">
-                <a href="#deadlines" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>
-                  Deadlines
-                </a>
-                <a href="#rules" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>
+                <a href="#rules" className="buttonBorders bg-[#007bff]" style={{ color: 'white' }}>
                   Rules
+                </a>
+                <a href="#links" className="buttonBorders bg-[#1a56ff]" style={{ color: 'white' }}>
+                  Links
                 </a>
               </div>
             </div>
@@ -237,13 +237,14 @@ function App() {
             <ol className="font-bold">
               <li>Ignore the first login screen.</li>
               <li>Swipe left to access the Single Sign-On (SSO) page.</li>
+              <li>Enter the following URL if blank, <a className="textLink font-normal" href="https://marquette.sutiexpense.com/login" target="_blank">marquette.sutiexpense.com</a></li>
               <li>Log in using your Marquette SSO credentials (the same login used for Confluence).</li>
             </ol>
 
             <p>
               Watch a quick login demo here:{' '}
               <a className="textLink" href="https://www.youtube.com/shorts/IIm1rsDXgvE?feature=share" target="_blank">
-                Login Demo Link
+                Login Demo
               </a>
             </p>
           </div>
@@ -344,10 +345,11 @@ function App() {
           <h2>How do I capture a receipt using my phone camera?</h2>
           <p>Within the app you can either:</p>
           <ul>
-            <li>Use the camera icon to take a photo as you submit your report</li>
-            <li>Upload a photo from your phone's gallery</li>
-            <li>Or upload an existing photo into your “My Receipts” Repository - a centralized location where uploaded and captured receipts are stored in the app.</li>
+            <li>Option 1 - Use your phone's camera to store a picture of your receipt in your photo gallery**</li>
+            <li>Option 2 - from within the Suti mobile app, use the camera icon to take a photo of your receipt - this will add the receipt to the "My Receipts" repository in Suti**</li>
+            <li>Option 3 - take a photo of the receipt when creating the expense report (least preferred method)</li>
           </ul>
+          <p>** Highly recommend using either Option 1 or 2 AND take the photo of the receipt at the time of the transaction</p>
         </div>
         <div className="flex flex-col md:flex-row gap-4 w-[90%] mx-auto">
           <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
@@ -357,6 +359,55 @@ function App() {
           <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
             <h2>What if my expense report is rejected?</h2>
             <p>The approver provides comments explaining the reason for rejection and whether or not it can be edited and resubmitted.</p>
+          </div>
+        </div>
+        <div className="infoContainer">
+          <h2 id="links">Links</h2>
+          <div className="flex flex-col md:flex-row gap-6 mt-3">
+            <div className="flex flex-col gap-4" style={{ width: '100%' }}>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-500 border-b border-blue-200 pb-1 mb-2">Support Plans</h3>
+                <ul className="list-none! ml-0! flex flex-row flex-wrap gap-x-4">
+                  <li><a className="textLink" target="_blank" href="Suti Expense Support Plan - IT.pdf">Suti Support Plan - IT</a></li>
+                  <li><a className="textLink" target="_blank" href="Suti Expense Support Plan - Operations.pdf">Suti Support Plan - Operations</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-500 border-b border-blue-200 pb-1 mb-2">Policy</h3>
+                <ul className="list-none! ml-0! flex flex-row flex-wrap gap-x-4">
+                  <li><a className="textLink" target="_blank" href="ExpenseReimbursementSuti.pdf">Expense Reimbursement Policy</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-500 border-b border-blue-200 pb-1 mb-2">eLearnings</h3>
+                <ul className="list-none! ml-0! flex flex-row flex-wrap gap-x-4">
+                  <li><a className="textLink" target="_blank" href="https://marquette.sci-training.org/login/index.php">SutiExpense eLearnings</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4" style={{ width: '100%' }}>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-500 border-b border-blue-200 pb-1 mb-2">Demos</h3>
+                <ul className="list-none! ml-0! flex flex-row flex-wrap gap-x-4">
+                  <li><a className="textLink" target="_blank" href="https://www.youtube.com/shorts/IIm1rsDXgvE?feature=share">Login Demo</a></li>
+                  <li><a className="textLink" target="_blank" href="https://www.youtube.com/watch?v=SUP7cmAI1wE&feature=youtu.be">Expense Report Demo</a></li>
+                  <li><a className="textLink" target="_blank" href="https://www.youtube.com/watch?v=Dx2YFX_p8MY&feature=youtu.be">Mileage Report Demo</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-500 border-b border-blue-200 pb-1 mb-2">App Login</h3>
+                <ul className="list-none! ml-0! flex flex-row flex-wrap gap-x-4">
+                  <li><a className="textLink" target="_blank" href="https://marquette.sutiexpense.com/login">SutiExpense Login</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-500 border-b border-blue-200 pb-1 mb-2">Download Links</h3>
+                <ul className="list-none! ml-0! flex flex-row flex-wrap gap-x-4">
+                  <li><a className="textLink" target="_blank" href="https://play.google.com/store/apps/details?id=com.sutisoft.SutiExpense&hl=en_US">Google Play Store</a></li>
+                  <li><a className="textLink" target="_blank" href="https://apps.apple.com/us/app/sutiexpense/id562877498">Apple App Store</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
