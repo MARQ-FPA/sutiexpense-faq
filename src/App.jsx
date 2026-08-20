@@ -265,7 +265,7 @@ function App() {
                 <li>Enter the details of the report</li>
                 <li>Add expenses and receipts</li>
                 <li>Submit for approval when ready</li>
-                <a className="font-normal textLink" target="_blank" href="https://www.youtube.com/watch?v=SUP7cmAI1wE&feature=youtu.be">Click here for an expense report demo</a>
+                <a className="font-normal textLink" target="_blank" href="https://youtu.be/sSB50uXOWdE">Click here for an expense report demo</a>
               </ol>
             </div>
             <div style={{ width: '90%', alignSelf: 'center' }}>
@@ -274,7 +274,7 @@ function App() {
                 <li>Create a new report</li>
                 <li>Enter trip details</li>
                 <li>Submit for approval when ready</li>
-                <a className="font-normal textLink" target="_blank" href="https://www.youtube.com/watch?v=Dx2YFX_p8MY&feature=youtu.be">Click here for a mileage report demo</a>
+                <a className="font-normal textLink" target="_blank" href="https://youtu.be/p9Wkh9LOOjI">Click here for a mileage report demo</a>
               </ol>
             </div>
           </div>
@@ -390,8 +390,8 @@ function App() {
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-500 border-b border-blue-200 pb-1 mb-2">Demos</h3>
                 <ul className="list-none! ml-0! flex flex-row flex-wrap gap-x-4">
                   <li><a className="textLink" target="_blank" href="https://www.youtube.com/shorts/IIm1rsDXgvE?feature=share">Login Demo</a></li>
-                  <li><a className="textLink" target="_blank" href="https://www.youtube.com/watch?v=SUP7cmAI1wE&feature=youtu.be">Expense Report Demo</a></li>
-                  <li><a className="textLink" target="_blank" href="https://www.youtube.com/watch?v=Dx2YFX_p8MY&feature=youtu.be">Mileage Report Demo</a></li>
+                  <li><a className="textLink" target="_blank" href="https://youtu.be/sSB50uXOWdE">Expense Report Demo</a></li>
+                  <li><a className="textLink" target="_blank" href="https://youtu.be/p9Wkh9LOOjI">Mileage Report Demo</a></li>
                 </ul>
               </div>
               <div>
