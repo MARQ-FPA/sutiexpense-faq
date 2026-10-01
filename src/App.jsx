@@ -232,6 +232,12 @@ function App() {
 
           <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
             <h2>How do I log in?</h2>
+            <p>Marquette uses Microsoft Authenticator to secure your account. In order to access any of the vessel mobile apps, MS Authenticator must be installed on the phone and it must be linked to your account. (note: you only have to do this once and it will work for all vessel mobile apps)</p>
+            <p className="mt-4">Click here for instructions on how to download and set up MS Authenticator:</p>
+            <ul className="mb-4">
+              <li><a className="textLink" href="authenticator/Authenticator_Set_Up_All_Mariners_iPhone.html" target="_blank" rel="noopener noreferrer">Mariner Authenticator Help (iPhone)</a></li>
+              <li><a className="textLink" href="authenticator/Authenticator_Set_Up_All_Mariners_Android.html" target="_blank" rel="noopener noreferrer">Mariner Authenticator Help (Android)</a></li>
+            </ul>
             <p>After opening the app: </p>
 
             <ol className="font-bold">
