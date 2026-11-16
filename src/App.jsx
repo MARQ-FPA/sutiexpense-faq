@@ -301,7 +301,7 @@ function App() {
               </a>
             </p>
 
-            <p><br />If you have additional questions, contact your Crew Manager or Makenzie Davis.</p>
+            <p><br />If you have additional questions, contact your Crew Manager.</p>
           </div>
           <div className="infoContainer" style={{ width: '100%', alignSelf: 'stretch' }}>
             <h2>How can I ensure timely reimbursement?</h2>
